@@ -1,0 +1,35 @@
+@acc_sid="AC8a7b404d45300fc02a69fbe0f23ce78e"
+@baseUrl="https://api.twilio.com/2010-04-01"
+
+###
+POST http://localhost:1337/sms/send
+Content-Type: application/json
+x-sid: AC8a7b404d45300fc02a69fbe0f23ce78e
+x-auth-token: 33368ab36359842749e3c9c6642b94c9
+x-from: +15203948028
+
+{
+  "to": "+212610763399",
+  "text": "all good"
+}
+
+###
+POST https://app.posthog.com/decide/
+
+###
+POST https://api.artic.edu/api/v1/artworks
+
+###
+POST http://localhost:1337/sms/status
+
+###
+GET http://localhost:1337/sms/SMc9d9e01c05224efdac3753b8bfc9cc2c
+
+###
+GET http://api.twilio.com/2010-04-01/Accounts/AC8a7b404d45300fc02a69fbe0f23ce78e/Messages/SMc9d9e01c05224efdac3753b8bfc9cc2c.json
+
+###
+DELETE http://localhost:1337/sms/SMf9eb2655f05b47d8bafc60c188834c04
+
+###
+GET http://localhost:1337/test
