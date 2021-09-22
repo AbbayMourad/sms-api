@@ -1,8 +1,6 @@
 const http = require('http');
 const express = require('express');
 // const MessagingResponse = require('twilio').twiml.MessagingResponse;
-// const sid = 'AC8a7b404d45300fc02a69fbe0f23ce78e'
-// const authToken = '33368ab36359842749e3c9c6642b94c9'
 // const client = require('twilio')(sid, authToken);
 const twilio = require('twilio')
 const session = require('express-session')
