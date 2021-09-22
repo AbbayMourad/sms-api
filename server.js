@@ -1,6 +1,6 @@
 const http = require('http');
 const express = require('express');
-const MessagingResponse = require('twilio').twiml.MessagingResponse;
+// const MessagingResponse = require('twilio').twiml.MessagingResponse;
 // const sid = 'AC8a7b404d45300fc02a69fbe0f23ce78e'
 // const authToken = '33368ab36359842749e3c9c6642b94c9'
 // const client = require('twilio')(sid, authToken);
@@ -11,7 +11,7 @@ const app = express()
 app.use(express.json({ limit: '1mb' }))
 app.use(express.urlencoded({ extended: true, limit: '1mb' }))
 // in order to keep track of clients
-app.use(session({ secret: 'anything-you-want-but-keep-secret' }));
+// app.use(session({ secret: 'anything-you-want-but-keep-secret' }));
 app.use(cors())
 
 const port = process.env.port || 1337, ip = '178.128.247.124'
@@ -21,7 +21,6 @@ const port = process.env.port || 1337, ip = '178.128.247.124'
 //! we can provide message delivery feedback
 //! we should add support for messaging services 
 app.post('/sms/send', (req, res) => {
-  //* don't forget to update it
   const statusHook = `https://${ip}:${port}/sms/status`
   const { 'x-from': from, 'x-sid': sid, 'x-auth-token': authToken } = req.headers
   const client = twilio(sid, authToken)
@@ -67,20 +66,20 @@ app.post('/sms/status', (req, res) => {
 // respond to an sms sent by client (webhook)
 //! we can provide a fallback webhook
 //! can be secured using twilio.webhook
-app.post('/sms/respond', (req, res) => {
-  const sms = req.body
-  let message = "you are new"
-  const { session } = req
-  if (session.count) message = `it's your ${session.count} message`
-  // remeber the client
-  session.count = (session.count + 1) || 1
-  const twiml = new MessagingResponse();
+// app.post('/sms/respond', (req, res) => {
+//   const sms = req.body
+//   let message = "you are new"
+//   const { session } = req
+//   if (session.count) message = `it's your ${session.count} message`
+//   // remeber the client
+//   session.count = (session.count + 1) || 1
+//   const twiml = new MessagingResponse();
 
-  twiml.message(message);
+//   twiml.message(message);
 
-  res.writeHead(200, { 'Content-Type': 'text/xml' });
-  res.end(twiml.toString());
-});
+//   res.writeHead(200, { 'Content-Type': 'text/xml' });
+//   res.end(twiml.toString());
+// });
 
 http.createServer(app).listen(port, () => {
   console.log(`Express server listening on port ${port}`);

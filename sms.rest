@@ -5,7 +5,7 @@
 POST http://178.128.247.124:1337/sms/send
 Content-Type: application/json
 x-sid: AC8a7b404d45300fc02a69fbe0f23ce78e
-x-auth-token: 33368ab36359842749e3c9c6642b94c9
+x-auth-token: 49955eed62e26181e8f53e44542cc1c0
 x-from: +15203948028
 
 {
