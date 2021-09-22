@@ -2,7 +2,7 @@
 @baseUrl="https://api.twilio.com/2010-04-01"
 
 ###
-POST http://localhost:1337/sms/send
+POST http://178.128.247.124:1337/sms/send
 Content-Type: application/json
 x-sid: AC8a7b404d45300fc02a69fbe0f23ce78e
 x-auth-token: 33368ab36359842749e3c9c6642b94c9
