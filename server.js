@@ -14,6 +14,7 @@ app.use(express.urlencoded({ extended: true, limit: '1mb' }))
 app.use(session({ secret: 'anything-you-want-but-keep-secret' }));
 app.use(cors())
 
+const port = process.env.port || 1337, ip = '178.128.247.124'
 // send an sms to a client
 //! in trial mode, we need to verify every number we wish to send sms to
 //! maybe I should handle sms rejection, and send sucess after recaiving the required info to send sms
@@ -21,7 +22,7 @@ app.use(cors())
 //! we should add support for messaging services 
 app.post('/sms/send', (req, res) => {
   //* don't forget to update it
-  const statusHook = 'https://f847-160-178-99-169.ngrok.io/sms/status'
+  const statusHook = `https://${ip}:${port}/sms/status`
   const { 'x-from': from, 'x-sid': sid, 'x-auth-token': authToken } = req.headers
   const client = twilio(sid, authToken)
   const { to, text } = req.body

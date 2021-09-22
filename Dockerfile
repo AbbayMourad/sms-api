@@ -3,5 +3,6 @@ WORKDIR /app
 COPY package*json ./
 RUN npm i
 COPY . ./
-EXPOSE 1337
+ENV port=1337
+EXPOSE $port
 CMD ["node", "server.js"]
